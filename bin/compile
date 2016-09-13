@@ -5,6 +5,7 @@ npmrc="$(cat $ENV_DIR/NPMRC)"
 
 if [ "$npmrc" != "" ]; then
 	echo "-----> Using NPMRC"
+	ln -s "$1/.npmrc" "$HOME/.npmrc"
 	echo "$ssh_key" > "$HOME/.npmrc"
 
 	exit 0
