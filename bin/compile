@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+ENV_DIR=${3:-}
+npmrc="$(cat $ENV_DIR/NPMRC)"
+
+if [ "$npmrc" != "" ]; then
+	echo "-----> Using NPMRC"
+	echo "$ssh_key" > "$HOME/.npmrc"
+
+	exit 0
+else
+	echo "-----> No NPMRC"
+fi
