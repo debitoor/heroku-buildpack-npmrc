@@ -5,9 +5,7 @@ build_dir=${1:-}
 npmrc="$(cat $ENV_DIR/NPMRC)"
 
 if [ "$npmrc" != "" ]; then
-	echo "-----> Using NPMRC"
+	echo "-----> Using .npmrc from config var NPMRC"
 	echo "$npmrc" > "$build_dir/.npmrc"
 	exit 0
-else
-	echo "-----> No NPMRC"
 fi
