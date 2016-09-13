@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
 ENV_DIR=${3:-}
+build_dir=${1:-}
 npmrc="$(cat $ENV_DIR/NPMRC)"
 
 if [ "$npmrc" != "" ]; then
 	echo "-----> Using NPMRC"
-	ln -s "$1/.npmrc" "$HOME/.npmrc"
-	echo "$ssh_key" > "$HOME/.npmrc"
-
+	echo "$npmrc" > "$build_dir/.npmrc"
 	exit 0
 else
 	echo "-----> No NPMRC"
